@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\auth\AuthController;
+
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'HomePage'])->name('homepage');
 
-Route::get('/admin/dashboard', [DashboardController::class, 'AdminDashboardPage'])->name('admin.dashboard.page');
+Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware(['supabase.auth'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'AdminDashboardPage'])->name('admin.dashboard.page');
+});
 

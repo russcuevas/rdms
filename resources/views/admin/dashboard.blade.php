@@ -1,124 +1,136 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MDRRMO</title>
+    <title>Resilio</title>
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    {{-- Favicon --}}
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon">
+    {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/guest/style.css') }}">
-</head>
-<body>
+    {{-- Toast CSS --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+</head>
+
+<body>
     @include('admin.components.navbar')
-    <div class="main-content flex-grow-1">
-        
+
+    <div class="main-content">
+
         <div class="row mb-4">
-            <div class="col-12">
-                <div class="search-bar-container d-flex align-items-center">
-                    <i class="fa-solid fa-magnifying-glass mx-3 text-muted"></i>
-                    <input type="text" class="form-control search-input" placeholder="Search city...">
-                    <button class="btn btn-primary search-button me-1">Search</button>
-                </div>
-            </div>
+            <h4>Dashboard</h4>
         </div>
 
         <div class="row g-4 mb-4">
-            <div class="col-lg-5 col-md-12">
-                <div class="card custom-card h-100">
+
+            <!-- SUMMARY BOXES -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card text-white bg-primary h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-muted mb-4">Current Weather</h5>
-                        <h3 class="card-subtitle mb-3">**Batangas, Philippines**</h3>
-                        <div class="d-flex align-items-center mb-4">
-                            <span style="font-size: 3rem; color: #ffc107; margin-right: 15px;">
-                                <i class="fa-solid fa-sun"></i>
-                            </span>
-                            <div class="d-flex flex-column">
-                                <span class="weather-value">28&deg;</span>
-                                <p class="text-muted mb-0">Partly Cloudy</p>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex justify-content-between pt-3">
-                            <div class="weather-detail-card flex-fill">
-                                <span class="weather-detail-icon"><i class="fa-solid fa-droplet"></i></span>
-                                <p class="mb-0 mt-1">**77%**</p>
-                                <small class="text-muted">HUMIDITY</small>
-                            </div>
-                            <div class="weather-detail-card flex-fill">
-                                <span class="weather-detail-icon"><i class="fa-solid fa-wind"></i></span>
-                                <p class="mb-0 mt-1">**17.3**</p>
-                                <small class="text-muted">KM/H WIND</small>
-                            </div>
-                            <div class="weather-detail-card flex-fill">
-                                <span class="weather-detail-icon"><i class="fa-solid fa-temperature-three-quarters"></i></span>
-                                <p class="mb-0 mt-1">**32&deg;**</p>
-                                <small class="text-muted">FEELS LIKE</small>
-                            </div>
-                        </div>
+                        <h5 class="card-title">Total Admins</h5>
+                        <h2 class="card-text">{{ $totalAdmins ?? 0 }}</h2>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-7 col-md-12">
-                <div class="card custom-card h-100">
+            <div class="col-lg-4 col-md-6">
+                <div class="card text-white bg-success h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-muted mb-4">24-Hour Forecast</h5>
-                        <div style="height: 200px; background-color: #f8f9fa; border-radius: 10px; position: relative;">
-                            <svg width="100%" height="100%" viewBox="0 0 500 200" preserveAspectRatio="none">
-                                <defs>
-                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#0d6efd; stop-opacity:0.6" />
-                                        <stop offset="100%" style="stop-color:#0d6efd; stop-opacity:0.05" />
-                                    </linearGradient>
-                                </defs>
-                                <path d="M0 160 C 50 140, 100 120, 150 100 S 250 80, 300 90 T 400 120 L 500 130 V 200 H 0 Z" fill="url(#chartGradient)" stroke="#0d6efd" stroke-width="2"/>
-                                <polyline points="0,160 50,140 100,120 150,100 200,80 250,80 300,90 350,110 400,120 450,125 500,130" fill="none" stroke="#0d6efd" stroke-width="2" />
-                            </svg>
-                            <div class="d-flex justify-content-between px-2 pt-2" style="position: absolute; bottom: 0; left: 0; right: 0; font-size: 0.75rem; color: #6c757d;">
-                                <span>01:00</span><span>03:00</span><span>06:00</span><span>09:00</span><span>11:00</span><span>13:00</span><span>15:00</span><span>17:00</span><span>19:00</span><span>21:00</span><span>23:00</span>
-                            </div>
-                        </div>
+                        <h5 class="card-title">Total Citizens</h5>
+                        <h2 class="card-text">{{ $totalCitizens ?? 0 }}</h2>
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card text-white bg-warning h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Evacuation Sites</h5>
+                        <h2 class="card-text"></h2>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row g-4">
-            <div class="col-lg-5 col-md-12">
-                <div class="card custom-card recent-earthquakes-card">
+        <!-- RECENT NOTIFICATIONS -->
+        <div class="row g-4 mb-4">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="card custom-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-muted mb-3">Flood Risk Assessment</h5>
-                        <p class="fs-4 mb-2">Risk Level: <span class="text-success">**Low**</span></p>
-                        <p class="text-muted">River Discharge Forecast ($m^3/s$)</p> 
+                        <h5 class="card-title text-muted mb-4">Recent Notifications</h5>
+
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item px-0">
+                                <div class="d-flex justify-content-between">
+                                    <strong></strong>
+                                    <small class="text-muted"></small>
+                                </div>
+                                <p class="mb-1">
+                                    <strong></strong> at
+                                    <span class="text-primary"></span>
+                                </p>
+                                <small class="text-muted"></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-7 col-md-12">
-                <div class="card custom-card recent-earthquakes-card">
+            <!-- MAPS -->
+            <div class="col-lg-6 col-md-12">
+                <div class="card custom-card h-100">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="card-title text-muted mb-0">Recent Earthquakes (Global)</h5>
-                            <button class="btn btn-sm btn-link text-muted" title="Refresh">
-                                <i class="fa-solid fa-arrows-rotate"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="border-start border-3 border-danger ps-3 py-2 mb-2">
-                            <p class="mb-0 fs-5">**4.9**</p>
-                            <small class="text-muted">Izu Islands, Japan region</small><br>
-                            <small class="text-muted">Nov 22, 09:06 | Depth: 10 km</small>
-                        </div>
-
+                        <h5 class="card-title text-muted mb-4">Maps Incidents</h5>
+                        <div id="map"></div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
 
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- JQuery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {{-- Toast JS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 4000,
+            positionClass: "toast-top-right"
+        };
+
+        // Success message
+        @if (session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+
+        // Error messages (from validation or other errors)
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}");
+            @endforeach
+        @endif
+    </script>
+
 </body>
+
 </html>

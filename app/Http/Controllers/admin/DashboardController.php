@@ -3,12 +3,27 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function AdminDashboardPage()
     {
-        return view('admin.dashboard');
+        // Total admins
+        $totalAdmins = DB::table('profiles')
+            ->where('role', 'admin')
+            ->count();
+
+        // Total citizens
+        $totalCitizens = DB::table('profiles')
+            ->where('role', 'citizen')
+            ->count();
+
+        // Total open evacuation sites
+
+        return view('admin.dashboard', compact(
+            'totalAdmins',
+            'totalCitizens',
+        ));
     }
 }
