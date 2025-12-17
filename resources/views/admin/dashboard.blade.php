@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/guest/style.css') }}">
     {{-- Toast CSS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/svgs/solid/shield-alt.svg" type="image/svg+xml">
 
 </head>
 
@@ -35,32 +36,51 @@
         <div class="row g-4 mb-4">
 
             <!-- SUMMARY BOXES -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card text-white bg-primary h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Admins</h5>
-                        <h2 class="card-text">{{ $totalAdmins ?? 0 }}</h2>
-                    </div>
+<div class="col-lg-4 col-md-6">
+        <div class="card text-white h-100" style="background-color: #1d4ed8">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fas fa-user-shield fa-3x"></i>
+                </div>
+                <div>
+                    <h5 class="card-title">Total Admins</h5>
+                    <h2 class="card-text">{{ $totalAdmins ?? 0 }}</h2>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="card text-white bg-success h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Citizens</h5>
-                        <h2 class="card-text">{{ $totalCitizens ?? 0 }}</h2>
-                    </div>
+    <!-- Total Citizens -->
+    <div class="col-lg-4 col-md-6">
+        <div class="card text-white h-100" style="background-color: #1d4ed8">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fas fa-users fa-3x"></i>
+                </div>
+                <div>
+                    <h5 class="card-title">Total Citizens</h5>
+                    <h2 class="card-text">{{ $totalCitizens ?? 0 }}</h2>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="card text-white bg-warning h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Evacuation Sites</h5>
-                        <h2 class="card-text"></h2>
-                    </div>
+    <!-- Total Evacuation Sites -->
+    <div class="col-lg-4 col-md-6">
+        <div class="card text-white h-100" style="background-color: #1d4ed8">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fas fa-map-marker-alt fa-3x"></i>
+                </div>
+                <div>
+                    <h5 class="card-title">Total Evacuation Sites</h5>
+                    <h2 class="card-text">{{ $totalEvacuations }}</h2>
                 </div>
             </div>
+        </div>
+    </div>
+
+
 
         </div>
 

@@ -171,7 +171,6 @@
             Capacity: ${site.capacity}<br>
             Current Occupancy: ${site.current_occupancy}<br>
             Status: ${site.is_open ? 'Open' : 'Closed'}<br>
-            <p>${site.description}</p>
         `;
                 marker.bindPopup(popupContent);
             }

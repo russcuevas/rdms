@@ -19,11 +19,14 @@ class DashboardController extends Controller
             ->where('role', 'citizen')
             ->count();
 
-        // Total open evacuation sites
+        // Total evacuation sites
+        $totalEvacuations = DB::table('evacuation_sites')
+            ->count();
 
         return view('admin.dashboard', compact(
             'totalAdmins',
             'totalCitizens',
+            'totalEvacuations'
         ));
     }
 }

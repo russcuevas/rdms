@@ -15,15 +15,15 @@
     <div class="offcanvas-body">
         <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-                <a class="nav-link nav-link-custom active" href="#">
+                <a class="nav-link nav-link-custom active" href="{{ route('admin.dashboard.page') }}">
                     <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="#">
+                <a class="nav-link nav-link-custom" href="{{ route('admin.announcement.page') }}">
                     <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
-                    Notification
+                    Announcement
                 </a>
             </li>
             <li class="nav-item">
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="#">
+                <a class="nav-link nav-link-custom" href="{{ route('admin.evacuation.page') }}">
                     <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
                     Evacuation Site
                 </a>
@@ -55,15 +55,15 @@
 
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link nav-link-custom active" href="#">
+            <a class="nav-link nav-link-custom active" href="{{ route('admin.dashboard.page') }}">
                 <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
                 Dashboard
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#">
+            <a class="nav-link nav-link-custom" href="{{ route('admin.announcement.page') }}">
                 <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
-                Notification
+                Announcement
             </a>
         </li>
         <li class="nav-item">
@@ -73,7 +73,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#">
+            <a class="nav-link nav-link-custom" href="{{ route('admin.evacuation.page') }}">
                 <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
                 Evacuation Site
             </a>
