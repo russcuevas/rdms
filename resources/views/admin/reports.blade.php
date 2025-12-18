@@ -60,9 +60,6 @@
                                     <tr>
                                         <th>Image URL</th>
                                         <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Long</th>
-                                        <th>Lat</th>
                                         <th>By</th>
                                         <th>Date</th>
                                         <th>Status</th>
@@ -88,15 +85,6 @@
                                     {{-- Title --}}
                                     <td>{{ $report->title }}</td>
 
-                                    {{-- Body --}}
-                                    <td>{{ \Illuminate\Support\Str::limit($report->description, 50) }}</td>
-
-                                    {{-- Longitude --}}
-                                    <td>{{ $report->lon }}</td>
-
-                                    {{-- Latitude --}}
-                                    <td>{{ $report->lat }}</td>
-
                                     {{-- Author --}}
                                     <td>{{ $report->author_name ?? $report->author_email ?? 'N/A' }}</td>
 
@@ -115,13 +103,11 @@
 
                                     {{-- Actions --}}
                                     <td>
-                                        <button class="btn btn-sm btn-primary">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
+                                        <a href="{{ route('admin.reports.view', $report->id) }}"
+                                        class="btn btn-sm btn-primary">
+                                            View information
+                                        </a>
 
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
                                     </td>
 
                                 </tr>

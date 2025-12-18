@@ -22,4 +22,42 @@ class ReportsController extends Controller
 
         return view('admin.reports', compact('reports'));
     }
+
+    public function AdminViewReportPage($id)
+{
+    $report = DB::table('reports')
+        ->leftJoin('auth.users', 'auth.users.id', '=', 'reports.user_id')
+        ->select(
+            'reports.*',
+            'auth.users.email as author_email'
+        )
+        ->where('reports.id', $id)
+        ->first();
+
+    if (!$report) {
+        abort(404);
+    }
+
+    return view('admin.reports.view', compact('report'));
+}
+
+public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:verified,resolved'
+    ]);
+
+    DB::table('reports')
+        ->where('id', $id)
+        ->update([
+            'status' => $request->status
+        ]);
+
+    return response()->json([
+        'success' => true,
+        'status' => ucfirst($request->status)
+    ]);
+}
+
+
 }

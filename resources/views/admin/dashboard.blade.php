@@ -36,7 +36,7 @@
         <div class="row g-4 mb-4">
 
             <!-- SUMMARY BOXES -->
-<div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-6">
         <div class="card text-white h-100" style="background-color: #1d4ed8">
             <div class="card-body d-flex align-items-center">
                 <div class="me-3">
@@ -87,37 +87,6 @@
         <!-- RECENT NOTIFICATIONS -->
         <div class="row g-4 mb-4">
 
-            <div class="col-lg-6 col-md-12">
-                <div class="card custom-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted mb-4">Recent Notifications</h5>
-
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item px-0">
-                                <div class="d-flex justify-content-between">
-                                    <strong></strong>
-                                    <small class="text-muted"></small>
-                                </div>
-                                <p class="mb-1">
-                                    <strong></strong> at
-                                    <span class="text-primary"></span>
-                                </p>
-                                <small class="text-muted"></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MAPS -->
-            <div class="col-lg-6 col-md-12">
-                <div class="card custom-card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted mb-4">Maps Incidents</h5>
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -146,11 +115,10 @@
         // Error messages (from validation or other errors)
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
-        @endif
+                toastr.error("{{ $error }}"); @endforeach
+         @endif
     </script>
 
-</body>
+    </body>
 
 </html>

@@ -44,12 +44,15 @@ Route::middleware(['supabase.auth'])->prefix('admin')->group(function () {
 
     // Reports Routes
     Route::get('/reports', [ReportsController::class, 'AdminReportsPage'])->name('admin.reports.page');
+    Route::get('/reports/{id}', [ReportsController::class, 'AdminViewReportPage'])
+        ->name('admin.reports.view');
+    Route::post('/admin/reports/{id}/status', [ReportsController::class, 'updateStatus'])
+    ->name('admin.reports.updateStatus');
+
     // Evacuation Routes
     Route::get('/evacuation', [EvacuationController::class, 'AdminEvacuationPage'])->name('admin.evacuation.page');
     Route::post('/evacuation/add', [EvacuationController::class, 'AdminAddEvacuationRequest'])->name('admin.evacuation.add');
     Route::put('/admin/evacuation/update/{id}', [EvacuationController::class, 'AdminUpdateEvacuationRequest'])->name('admin.evacuation.update');
     Route::delete('/admin/evacuation/delete/{id}', [EvacuationController::class, 'AdminDeleteEvacuationRequest'])->name('admin.evacuation.delete');
-
-
 });
 

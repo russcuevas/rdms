@@ -114,15 +114,6 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <h6 class="dropdown-header">Welcome, User!</h6>
-                </li>
-                <li><a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-id-badge me-2"></i> Profile
-                    </a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item text-danger">
