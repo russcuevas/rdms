@@ -127,16 +127,18 @@
                                                     <i class="fas fa-edit"></i>
                                                 </button>
 
-                                                <form
-                                                    action="{{ route('admin.announcements.destroy', $announcement->id) }}"
-                                                    method="POST" class="d-inline"
-                                                    onsubmit="return confirm('Are you sure you want to delete this announcement?');">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
+<form action="{{ route('admin.announcements.destroy', $announcement->id) }}"
+      method="POST"
+      class="deleteAnnouncementForm d-inline"
+      onsubmit="return handleDelete(this);">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-sm btn-danger">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>
+
+
                                             </td>
                                         </tr>
                                         @include('admin.announcement.edit_modal')
@@ -231,6 +233,23 @@
             });
         });
     </script>
+
+<script>
+    function handleDelete(form) {
+        if (!confirm('Are you sure you want to delete this site?')) {
+            return false;
+        }
+
+        document.getElementById('loadingOverlay').style.display = 'flex';
+
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+            btn.disabled = true;
+        }
+
+        return true;
+    }
+</script>
 
 
 

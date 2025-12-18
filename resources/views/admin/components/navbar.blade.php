@@ -14,31 +14,39 @@
     </div>
     <div class="offcanvas-body">
         <ul class="nav flex-column mb-auto">
-            <li class="nav-item">
-                <a class="nav-link nav-link-custom active" href="{{ route('admin.dashboard.page') }}">
-                    <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="{{ route('admin.announcement.page') }}">
-                    <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
-                    Announcement
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="#">
-                    <span class="nav-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                    Reports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="{{ route('admin.evacuation.page') }}">
-                    <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
-                    Evacuation Site
-                </a>
-            </li>
-        </ul>
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.dashboard.page') ? 'active' : '' }}"
+           href="{{ route('admin.dashboard.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
+            Dashboard
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.announcement.*') ? 'active' : '' }}"
+           href="{{ route('admin.announcement.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
+            Announcement
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}"
+           href="{{ route('admin.reports.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            Reports
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.evacuation.*') ? 'active' : '' }}"
+           href="{{ route('admin.evacuation.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
+            Evacuation Site
+        </a>
+    </li>
+</ul>
+
     </div>
 </div>
 
@@ -54,31 +62,39 @@
     </h4>
 
     <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link nav-link-custom active" href="{{ route('admin.dashboard.page') }}">
-                <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
-                Dashboard
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="{{ route('admin.announcement.page') }}">
-                <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
-                Announcement
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#">
-                <span class="nav-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                Reports
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="{{ route('admin.evacuation.page') }}">
-                <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
-                Evacuation Site
-            </a>
-        </li>
-    </ul>
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.dashboard.page') ? 'active' : '' }}"
+           href="{{ route('admin.dashboard.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-table-cells-large"></i></span>
+            Dashboard
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.announcement.*') ? 'active' : '' }}"
+           href="{{ route('admin.announcement.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-bell"></i></span>
+            Announcement
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}"
+           href="{{ route('admin.reports.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            Reports
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom {{ request()->routeIs('admin.evacuation.*') ? 'active' : '' }}"
+           href="{{ route('admin.evacuation.page') }}">
+            <span class="nav-icon"><i class="fa-solid fa-location-arrow"></i></span>
+            Evacuation Site
+        </a>
+    </li>
+</ul>
+
 </div>
 
 <!-- Top Navbar -->

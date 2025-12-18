@@ -147,14 +147,17 @@
                                                     <i class="fas fa-edit"></i>
                                                 </button>
 
-                                                <form action="{{ route('admin.evacuation.delete', $site->id) }}"
-                                                    method="POST" style="display:inline-block;"
-                                                    onsubmit="return confirm('Are you sure you want to delete this site?');">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger"><i
-                                                            class="fas fa-trash"></i></button>
-                                                </form>
+<form action="{{ route('admin.evacuation.delete', $site->id) }}"
+      method="POST"
+      style="display:inline-block;"
+      onsubmit="return handleDelete(this);">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-sm btn-danger">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>
+
                                             </td>
                                         </tr>
                                         @include('admin.evacuation.edit_modal')
@@ -256,8 +259,72 @@
         </script>
     @endforeach
 
+    {{-- LOADING --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.evacuationForm');
+            const loadingOverlay = document.getElementById('loadingOverlay');
 
-    <script></script>
+            form.addEventListener('submit', function () {
+                loadingOverlay.style.display = 'flex';
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Submitting...';
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+
+            document.querySelectorAll('.evacuationForm, .editEvacuationForm')
+                .forEach(form => {
+                    form.addEventListener('submit', function () {
+
+                        const modalElement = form.closest('.modal');
+
+                        if (modalElement) {
+                            const modalInstance = bootstrap.Modal.getInstance(modalElement)
+                                || new bootstrap.Modal(modalElement);
+
+                            modalInstance.hide();
+                            modalElement.addEventListener('hidden.bs.modal', function () {
+                                loadingOverlay.style.display = 'flex';
+                            }, { once: true });
+
+                        } else {
+                            loadingOverlay.style.display = 'flex';
+                        }
+
+                        const submitBtn = form.querySelector('button[type="submit"]');
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.innerText = 'Processing...';
+                        }
+                    });
+                });
+        });
+    </script>
+
+    <script>
+        function handleDelete(form) {
+            if (!confirm('Are you sure you want to delete this site?')) {
+                return false;
+            }
+
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            const btn = form.querySelector('button[type="submit"]');
+            if (btn) {
+                btn.disabled = true;
+            }
+
+            return true;
+        }
+    </script>
+    {{-- END LOADING --}}
+
 
     <script>
         (() => {

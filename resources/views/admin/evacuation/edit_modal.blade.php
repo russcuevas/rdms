@@ -1,7 +1,7 @@
 <div class="modal fade" id="editEvacuationSiteModal{{ $site->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg"> <!-- Make modal large -->
         <div class="modal-content">
-            <form action="{{ route('admin.evacuation.update', $site->id) }}" method="POST">
+            <form action="{{ route('admin.evacuation.update', $site->id) }}" method="POST" class="editEvacuationForm">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
